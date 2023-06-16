@@ -2,7 +2,7 @@ import * as Styled from './styles';
 
 export const Home = () => {
   return (
-    <div>
+    <div className="App">
       <Styled.Wrapper>
         <h1>Hello</h1>
       </Styled.Wrapper>
