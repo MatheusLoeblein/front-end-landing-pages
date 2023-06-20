@@ -66,6 +66,10 @@
       "!<rootDir>/**/stories.{js,jsx,ts,tsx}",
       "!<rootDir>/src/templates/**/*.{js,jsx,ts,tsx}",
       "!<rootDir>/node_modules/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "text"
     ]
   }
 }
