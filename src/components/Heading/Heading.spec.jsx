@@ -62,8 +62,8 @@ describe('<Heading/>', () => {
   });
 
   it('Should render correct font-size when screen using mobile', () => {
-    const { rerender } = renderTheme(<Heading size="huge">Texto</Heading>);
-    const heading = screen.getByRole('heading', { name: 'Texto' });
+    renderTheme(<Heading size="huge">Texto</Heading>);
+    screen.getByRole('heading', { name: 'Texto' });
 
     expect(screen.getByRole('heading', { name: 'Texto' })).toHaveStyleRule(
       'font-size',
@@ -88,5 +88,31 @@ describe('<Heading/>', () => {
     const h6 = container.querySelector('h6');
 
     expect(h6.tagName.toLowerCase()).toBe('h6');
+  });
+
+  it('Should match snapshot', () => {
+    const { container } = renderTheme(<Heading uppercase>Texto</Heading>);
+
+    expect(container).toMatchInlineSnapshot(`
+      .c0 {
+        color: #0A1128;
+        font-size: 6.4rem;
+        text-transform: uppercase;
+      }
+
+      @media (max-width:768px) {
+        .c0 {
+          font-size: 4.0rem;
+        }
+      }
+
+      <div>
+        <h1
+          class="c0"
+        >
+          Texto
+        </h1>
+      </div>
+    `);
   });
 });
