@@ -8,8 +8,10 @@ export const Menu = ({ links = [], LogoData }) => {
   return (
     <Styled.Container>
       <SectionContainer>
-        <LogoLink {...LogoData} />
-        <NavLinks links={links} />
+        <Styled.MenuContainer>
+          <LogoLink {...LogoData} />
+          <NavLinks links={links} />
+        </Styled.MenuContainer>
       </SectionContainer>
     </Styled.Container>
   );
