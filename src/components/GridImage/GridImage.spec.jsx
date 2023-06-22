@@ -1,10 +1,10 @@
 import { renderTheme } from '../../styles/render-theme';
-import { GridSection } from '.';
+import { GridImage } from '.';
 import { screen } from '@testing-library/react';
 
-describe('<GridSection />', () => {
+describe('<GridImage />', () => {
   it('should render', () => {
-    renderTheme(<GridSection>Children</GridSection>);
+    renderTheme(<GridImage>Children</GridImage>);
 
     expect(screen.getByRole('heading')).toBeInTheDocument();
   });
