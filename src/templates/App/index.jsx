@@ -1,12 +1,10 @@
 import { Heading } from '@storybook/blocks';
 import * as Styled from './styles';
+import { Base } from '../Base';
+import { mockBase } from '../Base/stories';
 
 function Home() {
-  return (
-    <Styled.Wrapper>
-      <Heading>O Texto que eu quero</Heading>
-    </Styled.Wrapper>
-  );
+  return <Base {...mockBase} />;
 }
 
 export default Home;

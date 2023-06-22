@@ -1,12 +1,16 @@
 import { renderTheme } from '../../styles/render-theme';
 import { GoTop } from '.';
 import { screen } from '@testing-library/react';
-import { KeyboardArrowUp } from '@styled-icons/material-outlined/KeyboardArrowUp';
 
 describe('<GoTop />', () => {
-  it('should render', () => {
-    renderTheme(<GoTop>Children</GoTop>);
+  it('should render Gotop', () => {
+    const { container } = renderTheme(<GoTop />);
 
-    expect(screen.getByRole('heading')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Go to top' })).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Go to top' })).toHaveAttribute(
+      'href',
+      '#',
+    );
+    expect(container).toMatchSnapshot();
   });
 });
