@@ -5,7 +5,7 @@ export default {
   component: Footer,
   args: {
     children: 'Footer',
-    html: `<p><a href="https://beacons.page/otaviomiranda">Feito por Matheus Loeblein</a></p>`,
+    footerHtml: `<p><a href="https://beacons.page/otaviomiranda">Feito por Matheus Loeblein</a></p>`,
   },
 };
 

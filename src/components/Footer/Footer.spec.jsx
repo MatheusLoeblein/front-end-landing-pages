@@ -4,7 +4,7 @@ import { screen } from '@testing-library/react';
 
 describe('<Footer />', () => {
   it('should render', () => {
-    const { container } = renderTheme(<Footer html={'<h1>Olá</h1>'} />);
+    const { container } = renderTheme(<Footer footerHtml={'<h1>Olá</h1>'} />);
 
     expect(container).toMatchInlineSnapshot(`
       .c4 {

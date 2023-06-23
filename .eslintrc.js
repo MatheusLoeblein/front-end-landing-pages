@@ -3,30 +3,37 @@ module.exports = {
     browser: true,
     es2021: true,
     jest: true,
-    node: true
+    node: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:react-hooks/recommended', 'plugin:prettier/recommended', 'plugin:storybook/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:react-hooks/recommended',
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
-    SharedArrayBuffer: 'readonly'
+    SharedArrayBuffer: 'readonly',
   },
   parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     ecmaVersion: 'latest',
-    sourceType: 'module'
+    sourceType: 'module',
   },
   plugins: ['react', 'prettier', 'react-hooks'],
   settings: {
     react: {
-      version: 'detect'
-    }
+      version: 'detect',
+    },
   },
   rules: {
     'react/react-in-jsx-scope': 'off',
     'no-unused-vars': 'off',
-    'react/prop-types': 0
-  }
+    'react/prop-types': 0,
+  },
 };
+// npx eslint src/**/*.jsx --fix
