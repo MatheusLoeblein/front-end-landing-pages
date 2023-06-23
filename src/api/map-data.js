@@ -1,5 +1,5 @@
 import { mapMenu } from './map-menu';
-import { mapSections } from './mapSections';
+import { mapSections } from './map-sections';
 
 export const mapData = (pagesData = [{}]) => {
   return pagesData.map((data) => {
