@@ -138,41 +138,55 @@ describe('map-sections', () => {
     expect(data.sectionId).toBe('');
   });
 
-  it('should map grid image with data', () => {
-    const data = mapImageGrid({
-      id: 4,
-      __component: 'section.section-grid',
-      title: 'MY GRID',
-      description: 'Uma breve descrição.\n\n',
-      text_grid: [],
-      image_grid: [
-        {
-          id: 1,
-        },
-        {
-          id: 2,
-        },
-      ],
-      metadata: {
-        id: 12,
-        name: 'grid-one',
-        section_id: 'grid-one',
-        background: true,
-      },
-    });
-    expect(data.component).toBe('section.section-grid-image');
-    expect(data.title).toBe('MY GRID');
-    expect(data.description).toBe('Uma breve descrição.\n\n');
-    expect(data.background).toBe(true);
-    expect(data.sectionId).toBe('grid-one');
-  });
-
-  it('should map grid image', () => {
+  it('should map grid image without data', () => {
     const data = mapImageGrid(undefined);
     expect(data.component).toBe('section.section-grid-image');
     expect(data.title).toBe('');
     expect(data.description).toBe('');
     expect(data.background).toBe(false);
     expect(data.sectionId).toBe('');
+  });
+
+  it('should map grid image with data', () => {
+    const data = mapImageGrid({
+      id: 1,
+      __component: 'section.section-grid',
+      title: 'MY GRID',
+      description: 'Uma breve descrição.',
+      metadata: {
+        id: 2,
+        name: 'grid-one',
+        section_id: 'grid-one',
+        background: true,
+      },
+      text_grid: [],
+      image_grid: [
+        {
+          id: 1,
+          image: {
+            data: [
+              {
+                id: 3,
+                attributes: {
+                  url: 'image.svg',
+                },
+              },
+              {
+                'id ': 2,
+                attributes: {
+                  url: 'image2.jpg',
+                },
+              },
+            ],
+          },
+        },
+      ],
+    });
+    expect(data.component).toBe('section.section-grid-image');
+    expect(data.title).toBe('MY GRID');
+    expect(data.description).toBe('Uma breve descrição.');
+    expect(data.background).toBe(true);
+    expect(data.sectionId).toBe('grid-one');
+    expect(data.grid.srcImg).toBe('');
   });
 });

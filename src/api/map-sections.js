@@ -88,5 +88,13 @@ export const mapImageGrid = (section = {}) => {
     description,
     background,
     sectionId,
+    image_grid: grid.map((img) => {
+      const { image: { data: srcImage = '' } = {} } = img;
+
+      return {
+        srcImage,
+        altText: srcImage,
+      };
+    }),
   };
 };
