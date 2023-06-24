@@ -6,10 +6,50 @@ import {
   mapImageGrid,
 } from './map-sections';
 
+import { data } from './dados.json';
+
 describe('map-sections', () => {
-  it('should render predefined section if no data', () => {
+  it('should render section with correct data', () => {
     const data = mapSections();
     expect(data).toEqual([]);
+  });
+
+  it('should render predefined section if no data', () => {
+    const { attributes } = data[1];
+    const sections = mapSections(attributes.sections);
+    expect(sections[0].component).toBe('section.section-two-columns');
+  });
+
+  it('should with invalid data', () => {
+    const withNoTextOrImage = mapSections([
+      {
+        __component: 'section.section-grid',
+      },
+    ]);
+    const withNoComponent = mapSections([{}]);
+
+    expect(withNoTextOrImage).toEqual([
+      {
+        __component: 'section.section-grid',
+      },
+    ]);
+
+    expect(withNoComponent).toEqual([{}]);
+  });
+
+  it('should test section grid no text or images', () => {
+    const withNoTextOrImageGrid = mapSections([
+      {
+        __component: 'section.section-grid',
+        text_grid: [{}],
+      },
+      {
+        __component: 'section.section-grid',
+        image_grid: [{}],
+      },
+    ]);
+
+    expect(withNoTextOrImageGrid.length).toBe(2);
   });
 
   it('should map values section two colums no data ', () => {
@@ -149,30 +189,24 @@ describe('map-sections', () => {
 
   it('should map grid image with data', () => {
     const data = mapImageGrid({
-      id: 1,
       __component: 'section.section-grid',
       title: 'MY GRID',
       description: 'Uma breve descrição.',
       metadata: {
-        id: 2,
-        name: 'grid-one',
         section_id: 'grid-one',
         background: true,
       },
       text_grid: [],
       image_grid: [
         {
-          id: 1,
           image: {
             data: [
               {
-                id: 3,
                 attributes: {
                   url: 'image.svg',
                 },
               },
               {
-                'id ': 2,
                 attributes: {
                   url: 'image2.jpg',
                 },
@@ -187,6 +221,7 @@ describe('map-sections', () => {
     expect(data.description).toBe('Uma breve descrição.');
     expect(data.background).toBe(true);
     expect(data.sectionId).toBe('grid-one');
-    expect(data.grid.srcImg).toBe('');
+    expect(data.grid[0].srcImage).toBe('image.svg');
+    expect(data.grid[0].altText).toBe('image.svg');
   });
 });
