@@ -14,5 +14,5 @@ export const Footer = ({ footerHtml }) => {
 };
 
 Footer.propsTypes = {
-  html: P.string.isRequired,
+  footerHtml: P.string.isRequired,
 };

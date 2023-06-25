@@ -57,7 +57,7 @@ describe('map-sections', () => {
     expect(data.component).toBe('');
     expect(data.title).toBe('');
     expect(data.text).toBe('');
-    expect(data.srcImage).toBe('');
+    expect(data.srcImg).toBe('');
     expect(data.background).toBe(false);
     expect(data.sectionId).toBe('');
   });
@@ -86,7 +86,7 @@ describe('map-sections', () => {
     expect(data.text).toBe(
       'To wrap up January, we are proud to bring you the release of Firefox 85. In this version we are bringing you support for the :focus-visible pseudo-class in CSS and associated devtools, and the complete removal of Flash support from Firefox.\n\n',
     );
-    expect(data.srcImage).toBe(
+    expect(data.srcImg).toBe(
       'https://res.cloudinary.com/deosirvhi/image/upload/v1651926290/javascript_8c37407653.svg',
     );
     expect(data.background).toBe(true);
@@ -221,7 +221,7 @@ describe('map-sections', () => {
     expect(data.description).toBe('Uma breve descrição.');
     expect(data.background).toBe(true);
     expect(data.sectionId).toBe('grid-one');
-    expect(data.grid[0].srcImage).toBe('image.svg');
+    expect(data.grid[0].srcImg).toBe('image.svg');
     expect(data.grid[0].altText).toBe('image.svg');
   });
 });
