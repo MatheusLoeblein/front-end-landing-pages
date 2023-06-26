@@ -18,7 +18,7 @@ describe('<LogoLink />', () => {
 
   it('should render image logo', () => {
     renderTheme(
-      <LogoLink link="#target" text="Olá Mundo" srcImage="image.jpg" />,
+      <LogoLink link="#target" text="Olá Mundo" srcImg="image.jpg" />,
     );
 
     expect(screen.getByAltText('Olá Mundo')).toHaveAttribute(
@@ -29,7 +29,7 @@ describe('<LogoLink />', () => {
 
   it('should match snapshot', () => {
     const { container } = renderTheme(
-      <LogoLink link="#target" text="Olá Mundo" srcImage="image.jpg" />,
+      <LogoLink link="#target" text="Olá Mundo" srcImg="image.jpg" />,
     );
 
     expect(container).toMatchInlineSnapshot(`

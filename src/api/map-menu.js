@@ -8,6 +8,8 @@ export const mapMenu = (menu = {}) => {
 
   const srcImg = menu?.logo?.data?.attributes?.url || '';
 
+  console.log(srcImg);
+
   return {
     newTab,
     text,
