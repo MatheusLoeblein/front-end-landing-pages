@@ -24,9 +24,10 @@ export const mapSectionTwoColums = (section = {}) => {
     __component: component = '',
     title = '',
     description: text = '',
-    image: { data: { attributes: { url: srcImg = '' } = {} } = {} } = {},
     metadata: { background = false, section_id: sectionId = '' } = false,
   } = section;
+
+  const srcImg = section?.image?.data?.attributes?.url || '';
 
   return {
     component,
